@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>深度学习-k交叉检验</title>
+      <link href="/2023/05/12/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-k%E4%BA%A4%E5%8F%89%E6%A3%80%E9%AA%8C/"/>
+      <url>/2023/05/12/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-k%E4%BA%A4%E5%8F%89%E6%A3%80%E9%AA%8C/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>one</title>
+      <link href="/2023/05/11/Marktext%E7%94%A8%E6%B3%95%E4%BB%A5%E5%8F%8Ahexo%E6%8C%87%E4%BB%A4/"/>
+      <url>/2023/05/11/Marktext%E7%94%A8%E6%B3%95%E4%BB%A5%E5%8F%8Ahexo%E6%8C%87%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Martext用法学习记录"><a href="#Martext用法学习记录" class="headerlink" title="Martext用法学习记录"></a>Martext用法学习记录</h1><h4 id="键可以显示出所有可用功能的窗口"><a href="#键可以显示出所有可用功能的窗口" class="headerlink" title="@键可以显示出所有可用功能的窗口"></a><code>@</code>键可以显示出所有可用功能的窗口</h4><img title="" src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/2023-05-11-10-38-58-image.png" alt="" width="323"><h4 id="Ctrl-j-可以打开侧边栏"><a href="#Ctrl-j-可以打开侧边栏" class="headerlink" title="Ctrl+j 可以打开侧边栏"></a><code>Ctrl+j</code> 可以打开侧边栏</h4><img title="" src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/2023-05-11-10-42-56-image.png" alt="" width="355"><h4 id="Ctrl-shift-T可以创建表格"><a href="#Ctrl-shift-T可以创建表格" class="headerlink" title="Ctrl+shift+T可以创建表格"></a><code>Ctrl+shift+T</code>可以创建表格</h4><img title="" src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/2023-05-11-10-46-32-image.png" alt="" width="461"><img title="" src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/2023-05-11-10-46-54-image.png" alt="" width="450"><h4 id="s-可以创建小表情"><a href="#s-可以创建小表情" class="headerlink" title=":s:可以创建小表情"></a><code>:s:</code>可以创建小表情</h4><p>:sleeping::sneezing_face::kissing_closed_eyes:</p><h4 id="改变字体颜色加上-lt-font-color-39-red-39-gt-lt-font-gt"><a href="#改变字体颜色加上-lt-font-color-39-red-39-gt-lt-font-gt" class="headerlink" title="改变字体颜色加上 &lt;font color=&#39;red&#39;&gt;&lt;/font&gt;"></a>改变字体颜色加上<code> &lt;font color=&#39;red&#39;&gt;&lt;/font&gt;</code></h4><p> <font color='red'>改变字体颜色</font></p><h1 id="hexo指令介绍"><a href="#hexo指令介绍" class="headerlink" title="hexo指令介绍"></a><code>hexo</code>指令介绍</h1><h4 id="hexo-cl"><a href="#hexo-cl" class="headerlink" title="hexo cl"></a><code>hexo cl</code></h4><p>hexo clean 的简写，清除本地缓存，把博客文件夹的public文件夹删除，public文件夹是基于本地文件生成用于上传到仓库或者其他网站服务器的文件夹，相当于中间站，删除不会影响本地的内容。</p><h4 id="hexo-g"><a href="#hexo-g" class="headerlink" title="hexo g"></a><code>hexo g</code></h4><p>hexo generate 的简写，意思是生成public文件夹</p><p><code>hexo d</code> </p><p>hexo deploy 的简写，将生成的public文件夹部署到网上</p><h4 id="hexo-s"><a href="#hexo-s" class="headerlink" title="hexo s"></a><code>hexo s</code></h4><p>启动本地服务器，用于预览主题</p><h4 id="hexo-n-name"><a href="#hexo-n-name" class="headerlink" title="hexo n name"></a><code>hexo n name</code></h4><p>hexo new 的简写，新建一个name.md文件</p><h1 id="今日行为"><a href="#今日行为" class="headerlink" title="今日行为"></a>今日行为</h1><p> 买了域名，努力搞了个人博客，图床设置貌似成功了吧（半年不成功的原因是这个marktext不会自动把地址改为上传的地址，还是本地地址，我哭死，哈哈，再不显示出来我也不会放弃的呢）.:sneezing_face:,表情不能显示出来，为啥为啥，诶，以后再说吧，备案什么的也太麻烦了吧.还上了许多颗星，拿了个五杀:stuck_out_tongue_closed_eyes:.今天还没阳，室友睡了一下午了，目前感觉身体特征一切正常，除了耳朵有点痛，不知道是戴口罩还是戴眼镜还是戴耳机的原因:pensive:！</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
