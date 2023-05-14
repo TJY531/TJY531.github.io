@@ -161,7 +161,7 @@
       }
     }
     detectApple()
-    })(window)</script><link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css"><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
   endLoading: () => {
     document.body.style.overflow = '';
     document.getElementById('loading-box').classList.add("loaded")
@@ -198,7 +198,7 @@ if (true) {
   function initWaline () {
     const waline = Waline.init(Object.assign({
       el: '#waline-wrap',
-      serverURL: 'https://tjy531.top/',
+      serverURL: 'https://comment.tjy531.com.cn/',
       pageview: false,
       dark: 'html[data-theme="dark"]',
       path: window.location.pathname,
@@ -270,7 +270,7 @@ if ('Waline' === 'Waline' || !false) {
   const getComment = () => {
     const loadWaline = () => {
       Waline.RecentComments({
-        serverURL: 'https://tjy531.top/',
+        serverURL: 'https://comment.tjy531.com.cn/',
         count: 6
       }).then(({comments}) => {
         const walineArray = comments.map(e => {
@@ -307,14 +307,7 @@ if ('Waline' === 'Waline' || !false) {
 
   newestCommentInit()
   document.addEventListener('pjax:complete', newestCommentInit)
-})</script><script type="module">
-  import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
-  init({
-    el: '#waline',
-    serverURL: 'https://tjy531.top',
-  });
-</script>
-<script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+})</script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
 POWERMODE.shake = false;
 POWERMODE.mobile = true;
 document.body.addEventListener('input', POWERMODE);
