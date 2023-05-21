@@ -4,6 +4,95 @@
   
     
     <entry>
+      <title>深度学习-ResNet</title>
+      <link href="/2023/05/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-ResNet/"/>
+      <url>/2023/05/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-ResNet/</url>
+      
+        <content type="html"><![CDATA[<h6 id="网络层数越来越深出现的问题："><a href="#网络层数越来越深出现的问题：" class="headerlink" title="网络层数越来越深出现的问题："></a>网络层数越来越深出现的问题：</h6><ol><li><p>梯度消失或梯度爆炸问题</p></li><li><p>退化问题</p></li></ol><p><img src="C:\Blog\source_posts\image\218d0b2d5bdd4af119bb2b81b0105c8ee6816564.png" alt="resnet1.png"></p><h4 id="ResNet创新点："><a href="#ResNet创新点：" class="headerlink" title="ResNet创新点："></a>ResNet创新点：</h4><ul><li><p>超级深的网络结构</p></li><li><p>提出Residual模块</p></li><li><p>使用Batch Normalization 加速训练，丢弃Dropout</p></li></ul><h6 id="ResNet34网络结构图如下"><a href="#ResNet34网络结构图如下" class="headerlink" title="ResNet34网络结构图如下"></a>ResNet34网络结构图如下</h6><p><img src="C:\Blog\source_posts\image\3f39c9b7c81eb8a90d2eefe035ada0a58bbebf18.png" alt="resnet2.png"></p><h5 id="Residual模块"><a href="#Residual模块" class="headerlink" title="Residual模块"></a>Residual模块</h5><p>左图主要针对的是网络层数较少的网络，右图主要针对网络层数较多的网络</p><p><img src="C:\Blog\source_posts\image\495d2dd0dcc5fa161f3cb6351c60e1867b9be8fb.png" alt="resnet3.png"></p><p>在左边的结构中，主线是将输入特征矩阵经过两个 3 × 3 的卷积层，右边有一个弧线直接从输入连接到输出，与卷积后的特征矩阵按元素相加得到最终特征矩阵结果。右边的结构的主分支则是在输入与输出都加上了 1 × 1 的卷积层，用来实现降维和升维。右边的参数节省了 94%</p><h5 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>python-文件读写</title>
+      <link href="/2023/05/21/python-%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/"/>
+      <url>/2023/05/21/python-%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深度学习-图像分类</title>
+      <link href="/2023/05/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB/"/>
+      <url>/2023/05/20/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>考研-操作系统</title>
+      <link href="/2023/05/18/%E8%80%83%E7%A0%94-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <url>/2023/05/18/%E8%80%83%E7%A0%94-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h2 id="一-操作系统概述"><a href="#一-操作系统概述" class="headerlink" title="一. 操作系统概述"></a>一. 操作系统概述</h2><h5 id="操作系统定义：是计算机系统最基本、最重要的系统软件，是其它软件的支撑软件。它控制和管理计算机系统的硬件和软件资源，合理组织计算机工作流程，并为用户使用计算机提供公共的和基本的服务。它有以下两个主要目标："><a href="#操作系统定义：是计算机系统最基本、最重要的系统软件，是其它软件的支撑软件。它控制和管理计算机系统的硬件和软件资源，合理组织计算机工作流程，并为用户使用计算机提供公共的和基本的服务。它有以下两个主要目标：" class="headerlink" title="操作系统定义：是计算机系统最基本、最重要的系统软件，是其它软件的支撑软件。它控制和管理计算机系统的硬件和软件资源，合理组织计算机工作流程，并为用户使用计算机提供公共的和基本的服务。它有以下两个主要目标："></a>操作系统定义：是计算机系统最基本、最重要的系统软件，是其它软件的支撑软件。它控制和管理计算机系统的硬件和软件资源，合理组织计算机工作流程，并为用户使用计算机提供公共的和基本的服务。它有以下两个主要目标：</h5><ol><li><p>高效性：操作系统允许以更加高效的方式使用计算机系统资源。</p></li><li><p>方便性：操作系统使得用户使用计算机更加方便</p></li></ol><h5 id="计算机系统的组成：运算器、存储器、控制器、输入设备，输出设备"><a href="#计算机系统的组成：运算器、存储器、控制器、输入设备，输出设备" class="headerlink" title="计算机系统的组成：运算器、存储器、控制器、输入设备，输出设备"></a>计算机系统的组成：运算器、存储器、控制器、输入设备，输出设备</h5><h5 id="操作系统与计算机系统：单用户操作系统—-gt"><a href="#操作系统与计算机系统：单用户操作系统—-gt" class="headerlink" title="操作系统与计算机系统：单用户操作系统—&gt;"></a>操作系统与计算机系统：单用户操作系统—&gt;</h5>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 考研 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>深度学习-音频分类</title>
+      <link href="/2023/05/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E9%9F%B3%E9%A2%91%E5%88%86%E7%B1%BB/"/>
+      <url>/2023/05/18/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E9%9F%B3%E9%A2%91%E5%88%86%E7%B1%BB/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>深度学习-数据集的划分</title>
       <link href="/2023/05/12/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-k%E4%BA%A4%E5%8F%89%E6%A3%80%E9%AA%8C/"/>
       <url>/2023/05/12/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-k%E4%BA%A4%E5%8F%89%E6%A3%80%E9%AA%8C/</url>
