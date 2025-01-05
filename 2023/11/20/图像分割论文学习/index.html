@@ -1,0 +1,450 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>图像分割论文学习 | 好好学习，天天向上</title><meta name="author" content="星星之火"><meta name="copyright" content="星星之火"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="从暑假开始阅读论文的，大多数是和医学图像分割相关的，在这里做一个记录和总结。CE-Net（CVPR）[1903.02740] CE-Net: Context Encoder Network for 2D Medical Image Segmentation (arxiv.org) 网络框架 SLEX-Net(JBHI)Hematoma Expansion Context Guided Intrac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图像分割论文学习">
+<meta property="og:url" content="http://tjy531.com.cn/2023/11/20/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="好好学习，天天向上">
+<meta property="og:description" content="从暑假开始阅读论文的，大多数是和医学图像分割相关的，在这里做一个记录和总结。CE-Net（CVPR）[1903.02740] CE-Net: Context Encoder Network for 2D Medical Image Segmentation (arxiv.org) 网络框架 SLEX-Net(JBHI)Hematoma Expansion Context Guided Intrac">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/waibaowebsite.jpg">
+<meta property="article:published_time" content="2023-11-20T12:56:03.000Z">
+<meta property="article:modified_time" content="2023-11-24T14:47:56.547Z">
+<meta property="article:author" content="星星之火">
+<meta property="article:tag" content="论文阅读">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/waibaowebsite.jpg"><link rel="shortcut icon" href="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/waibaowebsite.jpg"><link rel="canonical" href="http://tjy531.com.cn/2023/11/20/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: 星星之火","link":"链接: ","source":"来源: 好好学习，天天向上","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '图像分割论文学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-24 22:47:56'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = 'hidden';
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+
+preloader.initLoading()
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/waibaowebsite.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 菜单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="好好学习，天天向上"><span class="site-name">好好学习，天天向上</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/messageboard/"><i class="fa-fw fas fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 菜单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">图像分割论文学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-20T12:56:03.000Z" title="发表于 2023-11-20 20:56:03">2023-11-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-24T14:47:56.547Z" title="更新于 2023-11-24 22:47:56">2023-11-24</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>6分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="图像分割论文学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2023/11/20/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/#post-comment"><span class="waline-comment-count" data-path="/2023/11/20/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h6 id="从暑假开始阅读论文的，大多数是和医学图像分割相关的，在这里做一个记录和总结。"><a href="#从暑假开始阅读论文的，大多数是和医学图像分割相关的，在这里做一个记录和总结。" class="headerlink" title="从暑假开始阅读论文的，大多数是和医学图像分割相关的，在这里做一个记录和总结。"></a>从暑假开始阅读论文的，大多数是和医学图像分割相关的，在这里做一个记录和总结。</h6><h2 id="CE-Net（CVPR）"><a href="#CE-Net（CVPR）" class="headerlink" title="CE-Net（CVPR）"></a><strong>CE-Net</strong>（CVPR）</h2><p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.02740">1903.02740] CE-Net: Context Encoder Network for 2D Medical Image Segmentation (arxiv.org)</a></p>
+<p>网络框架<img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/CE-Net.png"></p>
+<h2 id="SLEX-Net-JBHI"><a href="#SLEX-Net-JBHI" class="headerlink" title="SLEX-Net(JBHI)"></a>SLEX-Net(JBHI)</h2><p><a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/9511297">Hematoma Expansion Context Guided Intracranial Hemorrhage Segmentation and Uncertainty Estimation | IEEE Journals &amp; Magazine | IEEE Xplore</a></p>
+<h2 id="UNet"><a href="#UNet" class="headerlink" title="UNet++"></a>UNet++</h2><p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1807.10165">1807.10165] UNet++: A Nested U-Net Architecture for Medical Image Segmentation (arxiv.org)</a></p>
+<h2 id="TransUNet（CVPR）"><a href="#TransUNet（CVPR）" class="headerlink" title="TransUNet（CVPR）"></a>TransUNet（CVPR）</h2><p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2102.04306v1">2102.04306v1] TransUNet: Transformers Make Strong Encoders for Medical Image Segmentation (arxiv.org)</a></p>
+<p>网络框架<img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/TransUNet.png"/></p>
+<h3 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h3><ol>
+<li>CNN和transformer 相结合，其中，先采用CNN进行卷积操作，得到图像浅层的特征，再输入到transformer模块中，transformer 模块（待补充，这部分存疑）</li>
+</ol>
+<h2 id="S4CVnet-ECCV"><a href="#S4CVnet-ECCV" class="headerlink" title="S4CVnet(ECCV)"></a><strong>S4CVnet</strong>(ECCV)</h2><p><a target="_blank" rel="noopener" href="https://link.springer.com/chapter/10.1007/978-3-031-25082-8_28">When CNN Meet with ViT: Towards Semi-supervised Learning for Multi-class Medical Image Semantic Segmentation | SpringerLink</a></p>
+<img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/S4CVnet.png">
+
+<h2 id="AAS-DCL-FSS-ECCV-小样本"><a href="#AAS-DCL-FSS-ECCV-小样本" class="headerlink" title="AAS-DCL-FSS(ECCV 小样本)"></a>AAS-DCL-FSS(ECCV 小样本)</h2><p>地址：<a target="_blank" rel="noopener" href="https://link.springer.com/chapter/10.1007/978-3-031-20044-1_24">Dual Contrastive Learning with Anatomical Auxiliary Supervision for Few-Shot Medical Image Segmentation | SpringerLink</a></p>
+<p>code:  <a target="_blank" rel="noopener" href="https://github.com/cvszusparkle/AAS-DCL_FSS">https://github.com/cvszusparkle/AAS-DCL_FSS</a></p>
+<p>网络框架<img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AAS-DCL-FSS.png"></p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li>采用小样本学习</li>
+<li>提出双对比学习分割模型（原型和上下文两个角度），利用没有目标类的医学图像的解剖辅助信息来提高特征的可辨别性和数据的利用率</li>
+<li>设计约束迭代预测模型来优化查询图像的分割</li>
+</ol>
+<h3 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h3><h4 id="对于无标签的图像的处理"><a href="#对于无标签的图像的处理" class="headerlink" title="对于无标签的图像的处理"></a>对于无标签的图像的处理</h4><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AASDCLFSS1.png">
+
+<p>大概过程：从所有的无标签的图像中随机抽取K个图像，对于挑选的每一个图像，从它们各自对应的超像素中选一个类别进行二值化作为它们的伪标签；同时，提取这K个图像的特征，最后将特征信息和伪标签一起送入到对比学习模块。</p>
+<h4 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h4><p><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AASDCLFSS_decoder.png" alt="image-20231121184433841"></p>
+<p>输入：一个支持查询对，支持集是图像和标签，查询集是图像；</p>
+<p>如上图所示，有五层卷积层（提取不同尺度的特征），其中前四层的具体模块如下:</p>
+<p><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AASDCLFSS2.png" alt="image-20231121185650736"></p>
+<p>最后一层相比于前四层，少了重复的一段</p>
+<p><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AASDCLFSS5.png" alt="image-20231121185919786"></p>
+<p>在查询分支，还增有sSE模块，<strong>首先，叠加支持特征中的各个特征图的重要信息，得到一个挤压过的特征图，再通过sigmoid激活，得到的权重矩阵与查询特征进行点乘，最后得到了校准过的查询特征</strong>，具体内容可以查看这篇博客：[【精选】<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38932073/article/details/115869172">小样本医学图像]‘Squeeze &amp; Excite’ Guided Few-Shot Segmentation of Volumetric Images_医学小样本三维分割_XL_Dylan的博客-CSDN博客</a></p>
+<p><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AASDCLFSS6.png" alt="image-20231121191540524"></p>
+<h4 id="双支路对比学习"><a href="#双支路对比学习" class="headerlink" title="双支路对比学习"></a><strong>双支路对比学习</strong></h4><p><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AASDCLFSS7.png" alt="image-20231121200052095"></p>
+<p>双对比学习模块</p>
+<p>b:语义对比学习</p>
+<p>c:事先嵌入</p>
+<p>d:原型对比学习</p>
+<h5 id="语义对比学习"><a href="#语义对比学习" class="headerlink" title="语义对比学习"></a>语义对比学习</h5><p><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AASDCLFSS8.png" alt="image-20231121200440391"></p>
+<p>对于无标签的切片特征图和支持集的切片特征图处理过程：首先通过ssE模块，使不同通道上的信息进行交互，再通过平均池化和重塑，最终得到无标签切片和支持集的向量。</p>
+<p>而对于查询集，则比上面二者多了一步PE模块。最终得到的是查询集的特征向量，通过<strong>Info NCE loss</strong>，要使得查询向量与支持向量尽可能相似，与无标签的向量尽可能不相似。损失函数公式如下：</p>
+<p><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AASDCLFSS9.png" alt="image-20231122133146643"></p>
+<h5 id="事先嵌入（PE）模块"><a href="#事先嵌入（PE）模块" class="headerlink" title="事先嵌入（PE）模块"></a>事先嵌入（PE）模块</h5><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AASDCLFSS10.png" style="height:300px;width=50px">
+
+<p>M：将支持特征与查询特征中的前景特征通过余弦相似度算法得到二者之间的相似度再加上归一化操作生成的相似度矩阵（即计算查询特征与支持特征标记区域的相似度）</p>
+<p>P^s：聚合支持特征图前景区域和背景区域的信息。</p>
+<p>最后将M、扩展过的p^s和查询特征f^q进行连接再卷积，得到前景信息增强过的查询特征f^q&#96;</p>
+<h5 id="原型对比学习"><a href="#原型对比学习" class="headerlink" title="原型对比学习"></a>原型对比学习</h5><p><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AASDCLFSS11.png" alt="image-20231122135319262"></p>
+<p>有两个部分，cpcl &amp;ppcl </p>
+<h6 id="Class-level-Prototypical-Contrastive-Learning"><a href="#Class-level-Prototypical-Contrastive-Learning" class="headerlink" title="Class-level Prototypical Contrastive Learning"></a>Class-level Prototypical Contrastive Learning</h6><p>与PE模块中得到P^s的步骤相同，聚合支持集和无标签集各自的前后区域信息，然后查询集通过PE模块加强前景信息后，通过自适应平均池化调整好形状，再进行Info NCE loss 计算，其中支持集是正样本，无标签集是父样本。</p>
+<p><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AASDCLFSS12.png" alt="image-20231122140944889"></p>
+<h6 id="Patch-level-Prototypical-Contrastive-Learning"><a href="#Patch-level-Prototypical-Contrastive-Learning" class="headerlink" title="Patch-level Prototypical Contrastive Learning"></a>Patch-level Prototypical Contrastive Learning</h6><p>提出PPCL有两个原因:一是由于MAP获得的类级原型会过滤掉目标类周围的其他背景信息，这些背景信息可能被用作负样本来增强目标类周围语义的判别性,二因为对比学习在很大程度上需要大量的有效学习负样本，只考虑类级原型是不够的。</p>
+<p>没读懂论文这一部分的具体实现。大概意思是通过设置阈值来划分支持集，将低于阈值的支持集的patch 聚合的特征向量作为负样本？<img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AASDCLFSS13.png" alt="image-20231122143827609"></p>
+<h4 id="Decoder"><a href="#Decoder" class="headerlink" title="Decoder"></a>Decoder</h4><p><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AASDCLFSS14.png" alt="image-20231122151434350"></p>
+<h4 id="Constrained-Iterative-Prediction"><a href="#Constrained-Iterative-Prediction" class="headerlink" title="Constrained Iterative Prediction"></a>Constrained Iterative Prediction</h4><p><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/AASDCLFSS15.png" alt="image-20231122160202560"></p>
+<p>优化分割结果</p>
+<p>大致过程：首先利用通用分类器的结果作为初始预测掩码，将其与解码器尾部的查询特征融合并发送到PE模块，在PE模块后通过一系列卷积运算获得新的分割结果。PE的应用是利用支持特征的引导信息来促进预测查询掩码的融合。新的查询预测将通过SCC中的以下约束来确定更新。</p>
+<p>代码目前还没有公布训练和测试代码，只公布了模型代码</p>
+<h2 id="CANet-CVPR-2019-小样本"><a href="#CANet-CVPR-2019-小样本" class="headerlink" title="CANet(CVPR 2019 小样本)"></a>CANet(CVPR 2019 小样本)</h2><p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1903.02351">1903.02351] CANet: Class-Agnostic Segmentation Networks with Iterative Refinement and Attentive Few-Shot Learning (arxiv.org)</a></p>
+<p>代码：<a target="_blank" rel="noopener" href="https://github.com/icoz69/CaNet">https://github.com/icoz69/CaNet</a></p>
+<h3 id="网络框架"><a href="#网络框架" class="headerlink" title="网络框架"></a>网络框架</h3><p><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/CANet1.png" alt="image-20231124103524420"></p>
+<h4 id="Dense-Comparison-Module"><a href="#Dense-Comparison-Module" class="headerlink" title="Dense Comparison Module"></a>Dense Comparison Module</h4><p>由两部分组成：表征特征提取部分（Feature Extractor）和特征对比部分（Dense Comparision）</p>
+<h5 id="Feature-Extractor"><a href="#Feature-Extractor" class="headerlink" title="Feature Extractor"></a>Feature Extractor</h5><p>目的：从CNN中获取不同层次的特征表示</p>
+<p>使用ResNet-50 作为特征提取器的backbone,backbone 在Imagenet 上进行预训练</p>
+<p>通常，较低层的特征信息与浅层的信息相关，比如边缘和颜色，对于较高层的特征则与对象及的概率相关，比如对象类别。</p>
+<p>模型需要适应未知的类，模型在训练过程中可能学习不到未知类别对应的特征，但在中间层的特征中，这些特征可能构成未知类的部分特征。</p>
+<p>ResNet 分为四个块，对应四个不同的表示级别，模型选择由block2和block3生成的特征进行特征比较，舍去block3 之后的模块。在block2后的层使用空洞卷积来保持特征图的空间分辨率。</p>
+<p>支持分支和查询分支都使用相同的特征提取器，在训练过程中，将ResNet 的权重保持固定</p>
+<h5 id="Dense-Comparision"><a href="#Dense-Comparision" class="headerlink" title="Dense Comparision"></a>Dense Comparision</h5><p>使用前景区域的全局平均池化特征映射压缩为特征向量。从支持集获得全局特征向量后，将该向量与查询分支生成的特征图中所有的空间位置连接起来（是为了进行对比），然后通过卷积块来进行对比</p>
+<h4 id="Iterative-Optimization-Module"><a href="#Iterative-Optimization-Module" class="headerlink" title="Iterative Optimization Module"></a>Iterative Optimization Module</h4><p>同一类别内的外观会存在差异，模型无法准确分割图像中的整个物体。最初始的预测是关于物体大致位置的重要线索，所以提出一个迭代优化模块，对预测结果进行迭代优化。</p>
+<p>模块的输入是密集比较模块生成的特征图和上次迭代的预测掩码，通过拼接的方式会导致特征分布不匹配（因为第一次的时候没有预测掩码），采取的是采用残差形式的合并。</p>
+<p><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/CAnet2.png" alt="image-20231124112054813"></p>
+<p>其中，x为密集比较模块的输出特征；y<del>t-1</del> 为上一步迭代得到的预测掩码，M<del>t</del> 为残差块的输出。使用ASPP（空间金字塔模块） 来捕获多尺度信息</p>
+<h4 id="Attention-Mechanism-for-k-shot-Segmentation"><a href="#Attention-Mechanism-for-k-shot-Segmentation" class="headerlink" title="Attention Mechanism for k-shot Segmentation"></a>Attention Mechanism for k-shot Segmentation</h4></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://tjy531.com.cn">星星之火</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://tjy531.com.cn/2023/11/20/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/">http://tjy531.com.cn/2023/11/20/图像分割论文学习/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://tjy531.com.cn" target="_blank">好好学习，天天向上</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/">论文阅读</a></div><div class="post_share"><div class="social-share" data-image="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/waibaowebsite.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/11/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0/" title="人工智能初步学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">人工智能初步学习</div></div></a></div><div class="next-post pull-right"><a href="/2023/08/22/%E8%84%91%E5%87%BA%E8%A1%80%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" title="论文学习"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">论文学习</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/waibaowebsite.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">星星之火</div><div class="author-info__description">一万年太久，只争朝夕</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">25</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/TJY531"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/TJY531" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:3187937600@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">努力提升自己</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E4%BB%8E%E6%9A%91%E5%81%87%E5%BC%80%E5%A7%8B%E9%98%85%E8%AF%BB%E8%AE%BA%E6%96%87%E7%9A%84%EF%BC%8C%E5%A4%A7%E5%A4%9A%E6%95%B0%E6%98%AF%E5%92%8C%E5%8C%BB%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E7%9B%B8%E5%85%B3%E7%9A%84%EF%BC%8C%E5%9C%A8%E8%BF%99%E9%87%8C%E5%81%9A%E4%B8%80%E4%B8%AA%E8%AE%B0%E5%BD%95%E5%92%8C%E6%80%BB%E7%BB%93%E3%80%82"><span class="toc-number">1.</span> <span class="toc-text">从暑假开始阅读论文的，大多数是和医学图像分割相关的，在这里做一个记录和总结。</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CE-Net%EF%BC%88CVPR%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">CE-Net（CVPR）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SLEX-Net-JBHI"><span class="toc-number"></span> <span class="toc-text">SLEX-Net(JBHI)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UNet"><span class="toc-number"></span> <span class="toc-text">UNet++</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TransUNet%EF%BC%88CVPR%EF%BC%89"><span class="toc-number"></span> <span class="toc-text">TransUNet（CVPR）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">特点：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S4CVnet-ECCV"><span class="toc-number"></span> <span class="toc-text">S4CVnet(ECCV)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AAS-DCL-FSS-ECCV-%E5%B0%8F%E6%A0%B7%E6%9C%AC"><span class="toc-number"></span> <span class="toc-text">AAS-DCL-FSS(ECCV 小样本)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number"></span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9"><span class="toc-number"></span> <span class="toc-text">主要内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E6%97%A0%E6%A0%87%E7%AD%BE%E7%9A%84%E5%9B%BE%E5%83%8F%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-number"></span> <span class="toc-text">对于无标签的图像的处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Encoder"><span class="toc-number"></span> <span class="toc-text">Encoder</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8C%E6%94%AF%E8%B7%AF%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0"><span class="toc-number"></span> <span class="toc-text">双支路对比学习</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%AD%E4%B9%89%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0"><span class="toc-number"></span> <span class="toc-text">语义对比学习</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%8B%E5%85%88%E5%B5%8C%E5%85%A5%EF%BC%88PE%EF%BC%89%E6%A8%A1%E5%9D%97"><span class="toc-number"></span> <span class="toc-text">事先嵌入（PE）模块</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0"><span class="toc-number"></span> <span class="toc-text">原型对比学习</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Class-level-Prototypical-Contrastive-Learning"><span class="toc-number">1.</span> <span class="toc-text">Class-level Prototypical Contrastive Learning</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Patch-level-Prototypical-Contrastive-Learning"><span class="toc-number">2.</span> <span class="toc-text">Patch-level Prototypical Contrastive Learning</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Decoder"><span class="toc-number"></span> <span class="toc-text">Decoder</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Constrained-Iterative-Prediction"><span class="toc-number"></span> <span class="toc-text">Constrained Iterative Prediction</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CANet-CVPR-2019-%E5%B0%8F%E6%A0%B7%E6%9C%AC"><span class="toc-number"></span> <span class="toc-text">CANet(CVPR 2019 小样本)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%A1%86%E6%9E%B6"><span class="toc-number"></span> <span class="toc-text">网络框架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Dense-Comparison-Module"><span class="toc-number"></span> <span class="toc-text">Dense Comparison Module</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Feature-Extractor"><span class="toc-number"></span> <span class="toc-text">Feature Extractor</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Dense-Comparision"><span class="toc-number"></span> <span class="toc-text">Dense Comparision</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Iterative-Optimization-Module"><span class="toc-number"></span> <span class="toc-text">Iterative Optimization Module</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Attention-Mechanism-for-k-shot-Segmentation"><span class="toc-number"></span> <span class="toc-text">Attention Mechanism for k-shot Segmentation</span></a></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/04/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E6%88%98/" title="蓝桥杯备战">蓝桥杯备战</a><time datetime="2024-04-03T02:16:44.000Z" title="发表于 2024-04-03 10:16:44">2024-04-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/05/%E5%A4%9A%E6%A0%87%E7%AD%BE%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87/" title="多标签图像分类评价指标">多标签图像分类评价指标</a><time datetime="2024-02-05T06:13:09.000Z" title="发表于 2024-02-05 14:13:09">2024-02-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/31/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/" title="无题">无题</a><time datetime="2023-12-31T03:23:31.781Z" title="发表于 2023-12-31 11:23:31">2023-12-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/27/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0/" title="人工智能初步学习">人工智能初步学习</a><time datetime="2023-11-27T05:52:37.000Z" title="发表于 2023-11-27 13:52:37">2023-11-27</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/11/20/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2%E8%AE%BA%E6%96%87%E5%AD%A6%E4%B9%A0/" title="图像分割论文学习">图像分割论文学习</a><time datetime="2023-11-20T12:56:03.000Z" title="发表于 2023-11-20 20:56:03">2023-11-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By 星星之火</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://comment.tjy531.com.cn/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: true,
+    }, {"requiredMeta":["nick","mail"],"locale":{"placeholder":"昵称和邮箱为必填项，为了您能及时收到相关信息，请确保邮箱的正确性"}}))
+  }
+
+  const walineCSSLoad = document.getElementById('waline-css')
+
+  if (typeof Waline === 'object') {
+    walineCSSLoad ? initWaline() : getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css','waline-css').then(initWaline)
+  }
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css','waline-css').then(() => {
+      getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+    })
+  }
+}
+
+if ('Waline' === 'Waline' || !false) {
+  if (false) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="https://imagfromtjy.oss-cn-shenzhen.aliyuncs.com/img/loadingwebsite.gif" data-original="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const loadWaline = () => {
+      Waline.RecentComments({
+        serverURL: 'https://comment.tjy531.com.cn/',
+        count: 6
+      }).then(({comments}) => {
+        const walineArray = comments.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.insertedAt,
+          }
+        })
+        saveToLocal.set('waline-newest-comments', JSON.stringify(walineArray), 10/(60*24))
+        generateHtml(walineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      }) 
+    }
+
+    if (typeof Waline === 'object') loadWaline()
+    else getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(loadWaline)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('waline-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="true" data-text="study?,study!,ok" data-fontsize="10px" data-random="true" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body></html>
