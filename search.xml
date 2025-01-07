@@ -4,13 +4,50 @@
   
     
     <entry>
-      <title>蓝桥杯备战</title>
-      <link href="/2024/04/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E6%88%98/"/>
-      <url>/2024/04/03/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%A4%87%E6%88%98/</url>
+      <title>Conv2Former阅读记录</title>
+      <link href="/2025/01/06/Conv2Former%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/"/>
+      <url>/2025/01/06/Conv2Former%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/</url>
       
-        <content type="html"><![CDATA[<h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><h3 id="求最大公因数（辗转相减和辗转相除法）"><a href="#求最大公因数（辗转相减和辗转相除法）" class="headerlink" title="求最大公因数（辗转相减和辗转相除法）"></a>求最大公因数（辗转相减和辗转相除法）</h3><p><a href="https://www.acwing.com/problem/content/1225/">1223. 最大比例 - AcWing题库</a></p><p>一般用辗转相除法求最大公因数，但是对于求$a^{p1},a^{p2},a^{p3}…$中的$p_1,p_2,p_3,..$的最大公因数，用辗转相减法。</p><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line">LL a[<span class="number">110</span>];</span><br><span class="line"><span class="function">LL <span class="title">gcd</span><span class="params">(LL a,LL b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b==<span class="number">0</span>?a:<span class="built_in">gcd</span>(b,a%b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">LL <span class="title">sub_gcd</span><span class="params">(LL a,LL b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b&gt;a) <span class="built_in">swap</span>(a,b);</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">1</span>) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sub_gcd</span>(b,a/b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> len;</span><br><span class="line">LL d[<span class="number">110</span>],u[<span class="number">110</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;i++) <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;a[i]);</span><br><span class="line">    <span class="built_in">sort</span>(a,a+n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]!=a[i<span class="number">-1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            LL g=<span class="built_in">gcd</span>(a[i],a[<span class="number">0</span>]);</span><br><span class="line">            d[len]=a[<span class="number">0</span>]/g;</span><br><span class="line">            u[len++]=a[i]/g;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    LL D=d[<span class="number">0</span>],U=u[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;len;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        D=<span class="built_in">sub_gcd</span>(D,d[i]);</span><br><span class="line">        U=<span class="built_in">sub_gcd</span>(U,u[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld/%lld&quot;</span>,U,D);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="线性筛法"><a href="#线性筛法" class="headerlink" title="线性筛法"></a>线性筛法</h3>]]></content>
+        <content type="html"><![CDATA[<h1 id="Conv2Former阅读记录"><a href="#Conv2Former阅读记录" class="headerlink" title="Conv2Former阅读记录"></a>Conv2Former阅读记录</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>        simplify the self-attention by leveraging a convolutional modulation operation. 通过卷积调制操作简化自注意力机制。</p><h1 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h1><p>        Models like ResNet mostly aggregate responses with large receptive fields by stacking multiple building blocks and adopting the pyamid network architecture but <strong>neglect the importance of explicitly modeling the global contextual information</strong>.像ResNet 这样的模型大多通过堆叠多个构建块和采取金字塔结构来获得大的感受野，但是这会忽略一个重要点：直接获得全局语境信息 。</p><p>        SENet <strong>introduce attention-based mechanisms into CNNs to capture long-range dependencies</strong> ,attaining surprisingly good performance.SENet 在CNNs中引入注意力机制来捕获长距离依赖，获得了令人惊讶的性能。</p><p>        The self-attention mechanism in Transformers is able to model global pairwise dependencies,providing a more efficient way to encode spatial information. Nevertheless, the computational cost caused by the self-attention when processing high-resolution images is considerable.自注意力所带来的计算开销是相当大的。</p><h3 id="卷积调制"><a href="#卷积调制" class="headerlink" title="卷积调制"></a>卷积调制</h3><img src="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/202501062209959.png" title="" alt="loading-ag-147" width="461"><p>        As shown in the left part of the above picture,self-attention computes the output of each pixel by a weighted summation of all other positions.This process can also be mimicked by computing the Hadamard proudct between the output of a large-kernel convolution and value representations, which we call convolutional modulation as depicted in the right part of the above picture.自注意力每个像素对应的输出来自其它所有位置像素的加权求和，这个过程也可以通过计算大卷积核的哈达玛积来模仿和表达，这就是卷积调制。</p><p>        The difference is that the convolution kernels are static while the attention matrix generated by self-attention can adapt to the input content.不同之处在于卷积调制的卷积核是静态的，而自注意力所产生的信息与输入内容有关。</p><p>        Simply replacing the self-attention in ViTs with the proposed convolutional modulation operation yields the porposed network,termed Conv2Former. 用卷积调制操作代替ViTs中的自注意力所产生的网络称为Conv2Former。</p><p>        Another main contribution of this paper is that we show Conv2Former can benefit more from convolutions with larger kernels, like 11×11 and 21×21. It alse show that the method using 11×11 depthwise convolutions performs even better than the recent works using super large kernel convolutions.论文另一个主要的贡献就是Conv2Former 能够随着卷积核的增大持续获得更多的收益。</p><h3 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h3><p><img src="https://imagefortjy.oss-cn-shenzhen.aliyuncs.com/img/202501072037045.png" alt="loading-ag-142"></p>]]></content>
       
       
+      <categories>
+          
+          <category> 图像分割 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 论文 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>初步接触教员</title>
+      <link href="/2025/01/05/%E5%88%9D%E6%AD%A5%E6%8E%A5%E8%A7%A6%E6%95%99%E5%91%98/"/>
+      <url>/2025/01/05/%E5%88%9D%E6%AD%A5%E6%8E%A5%E8%A7%A6%E6%95%99%E5%91%98/</url>
+      
+        <content type="html"><![CDATA[<p>       2024年以前，我不知什么是资本主义，不知什么是共产主义，不知道社会主义国家和资本主义国家的区别，也很少关注国际上的事情，是个跟随网络舆论，容易听信他人的人。  </p><p>        在2024年时，大概是内心急需一个方向，一个思想来填充自己贫瘠的精神世界，意外地接触到许多宣传赞美教员的内容，自己也就开始好奇教员这个人了，当时只买了两本毛选，想着看看到底有什么魔力，值得这么多人崇敬他。</p><p>        初读毛选第一卷的《中国社会各阶级的分析》时，我被教员通俗易懂，条理清晰的文字所折服，他所写的，很多都是我从未想到过的。我惊叹于他能清楚地写出不同阶级之间的区别和联系，直击要害。“谁是我们的敌人？谁是我们的朋友？这个问题是革命的首要问题。”这句话是大众所熟知的，我佩服他能开门见山地指出这个关键问题，他这句话，在我看来是十分有道理的，要团结真正的朋友，攻击真正得到敌人，这也是能运用到如今的学习或生活上的。这篇文章我读了三次，却依然不是大懂，我认为是自身没有在社会中深入实践，不能体会究竟哪种人属于哪种阶级。</p><p>        后来又读了大名鼎鼎的《矛盾论》和《实践论》，自此开始了我对于教员的崇拜，我开始感觉，自己好像认识了这个世界，我仿佛发现了新大陆，我乐于沉浸书中的内容，这是从前的我不曾有的。每每阅读，我的内心会不由自主地赞叹：“对啊，真是这样的，我为什么没有从这个角度想过。”我时常觉得自己的思考的过于浅薄，不能真正理解他所要表达的含义。但是没关系，我从他的文字中，了解到了他。</p><p>        教员的文字十分有感染力，我很爱他的一些诗词，譬如“待到山花烂漫时，她在丛中笑。”、“埋骨何须桑梓地，人生无处不青山。”、“俱往矣，数风流人物，还看今朝。”、“世上无难事，只要肯攀登。”、“天若有情天亦老，人间正道是沧桑。”、“为有牺牲多壮志，敢教日月换新天。”中华儿女多奇智，不爱红装爱武装。“。</p><p>        朋友们说我对于毛主席有些过于痴迷，就像是他的唯粉一样。我不置可否，因为他是真的让人全身心佩服。他是我的偶像，是我要认真学习的榜样。我以为世人皆虚伪，但他是如此纯粹，今年是他131年周年纪念日，我和朋友有幸前往韶山，途中所遇到的大部分是中老年人，也有部分和我一样的小年轻，我们都有一个共同点，就是胸前都佩戴了毛主席的勋章，都是打心底里敬爱毛主席。</p><p>        今后也是要多读教员的书籍，他的文字，就是我们生活中的舵手，指引方向。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 思想 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 共产主义 </tag>
+            
+        </tags>
       
     </entry>
     
